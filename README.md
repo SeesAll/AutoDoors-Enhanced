@@ -124,7 +124,6 @@ Goals of this update:
 - avoid feature removal
 - improve maintainability
 - improve compatibility with newer Rust content
-- avoid risky rewrites that could introduce regressions
 
 ## Suggested GitHub repository contents
 
