@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("Auto Doors", "Wulf/lukespragg/Arainrr/James/Bushhy, updated by SeesAll", "3.3.14", ResourceId = 1924)]
+    [Info("Auto Doors", "Wulf/lukespragg/Arainrr/James/Bushhy, updated by SeesAll", "3.3.15", ResourceId = 1924)]
     [Description("Automatically closes doors behind players after X seconds")]
     public class AutoDoors : RustPlugin
     {
@@ -150,8 +150,10 @@ namespace Oxide.Plugins
                 doorTimers.Remove(doorID);
                 if (door == null || !door.IsOpen()) return;
                 if (configData.globalS.cancelOnKill && player != null && player.IsDead()) return;
-                door.SetFlag(BaseEntity.Flags.Open, false);
-                door.SendNetworkUpdateImmediate();
+                using (var flagsScope = door.StartSetFlags(BaseEntity.FlagsUpdateMode.SendNetworkUpdate_Flags))
+                {
+                    flagsScope.Set(BaseEntity.Flags.Open, false);
+                }
             });
         }
 

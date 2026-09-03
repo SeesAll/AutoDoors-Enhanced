@@ -1,5 +1,17 @@
 # Changelog
 
+## v3.3.15
+
+### Fixed
+- Updated automatic door closing for the September 3, 2026 Rust force wipe.
+- Replaced the removed `BaseEntity.SetFlag` call with Rust's scoped `StartSetFlags` API.
+- Door-close flag changes now send their network update through the new flag scope.
+
+### Notes
+- This compatibility update is required for the plugin to compile after Rust removes `BaseEntity.SetFlag`.
+
+---
+
 ## v3.3.14
 
 ### Fixed

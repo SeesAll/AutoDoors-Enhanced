@@ -128,7 +128,7 @@ Goals of this update:
 ## Suggested GitHub repository contents
 
 Recommended files to upload:
-- `AutoDoors.cs` or `AutoDoors_3.3.14.cs`
+- `AutoDoors.cs` or `AutoDoors_3.3.15.cs`
 - `README.md`
 - `CHANGELOG.md`
 - `LICENSE` (if you are publishing under the same terms you are allowed to use)
@@ -139,8 +139,10 @@ Modernized Auto Doors plugin for Rust/uMod with cleaner internals, performance i
 
 ## Suggested release title
 
-`Auto Doors v3.3.14 - modernization, performance cleanup, and Armored Ladder Hatch support`
+`Auto Doors v3.3.15 - September 2026 Rust compatibility`
 
 ## Suggested release notes
 
 This update preserves the original Auto Doors feature set while improving internal structure, maintainability, and compatibility with newer Rust content. It includes support for the new Armored Ladder Hatch variants, internal performance improvements around door controller handling, and general cleanup to make the plugin easier to maintain going forward.
+
+Version 3.3.15 also replaces the removed `BaseEntity.SetFlag` API with Rust's scoped `StartSetFlags` API, keeping automatic door closing compatible with the September 3, 2026 force wipe.
